@@ -1,7 +1,7 @@
 {
-  "name": "kimchenformexpress",
+  "name": "formexpress",
   "version": "1.0.0",
-  "description": "express server with the free formation of kim chen, seems to be a good guy",
+  "description": "express server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
