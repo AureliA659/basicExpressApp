@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!---with ejs we can write a part of a code in a seperate file and just include it when we will need it, avoid redundance -->
+    <head>
+      <title>A first node page</title>
+      <%- include('./partials/head.ejs') %>
+      </head>
+    <body>
+      <%- include('./partials/nav.ejs') %> 
+          <div class="container">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Fusce tempor, eros vel dignissim hendrerit, nisl lorem vestibulum velit, a blandit arcu sapien quis lacus. 
+                Proin vulputate nisl nibh. 
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+                Suspendisse tempor, nisi ut gravida mattis, risus tortor sollicitudin nibh, vel laoreet dolor quam non dolor. 
+                Phasellus dapibus venenatis urna vel molestie. Sed vitae rhoncus orci, ut sollicitudin mi. 
+                Sed fringilla sit amet odio nec iaculis. Ut enim leo, molestie a dolor in, interdum maximus lorem. 
+                Vestibulum sagittis pharetra tortor in vulputate. Aenean elementum molestie tellus at varius. 
+                In pharetra a leo vel volutpat. Aliquam eu bibendum urna.
+              </p>
+              <button ><a href="/kakolina">Kakol me!</a></button>
+              <!-- <p id="kakol-div" -->
+          </div>
+    </body>
+</html>
