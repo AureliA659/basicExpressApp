@@ -25,8 +25,8 @@ app.get('/contact',(req,res)=>{
 });
 app.get('/lorum',(req,res)=>{
     const names = [
-        { name: 'Aurel', tel: "+972543210758" },
-        { name: 'Mam', tel: "+33661955150" }
+        { name: 'Aurel', tel: "0123456789" },
+        { name: 'Mam', tel: "0987654321" }
     ]
     console.log("jusqu'ici tout va bien...");
     res.render('blabla', { names });
