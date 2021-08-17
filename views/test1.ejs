@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Kakolina del amor</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+      <nav>
+        <div class="nav-wrapper green darken-1">
+          <%- include('./partials/nav.ejs') %> 
+        </div>
+      </nav>
+          <div class="container">
+              <ul class="collection with-header">
+      
+                  <% if (contacts.length>0) { %>
+      
+                  <%  contacts.forEach(contact => { %>
+                    <li class="collection-item">
+                        <div><%= contact.name%> <%=     contact.telephone%><a href="#!" class="secondary-content"><i
+                                    class="material-icons">delete</i><i class="material-icons">edit</i></a></div>
+                    </li>
+                  <%  }); %>
+      
+      
+                  <% }else{%>
+                  <li>There are no contacts</li>
+                  <%}%>
+               
+              </ul>
+          </div>
+    </body>
+</html>
