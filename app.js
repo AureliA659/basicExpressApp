@@ -1,6 +1,16 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const mongodb = 'mongodb+srv://<username>:<password>@cluster0.5zl9v.mongodb.net/<database-name>?retryWrites=true&w=majority';    //connect your app to your mongoDB
+const mongoose = require('mongoose');
+const Contact = require('./models/contact.js');
+
+mongoose.connect(mongodb,{ useNewUrlParser: true, useUnifiedTopology: true}).then(()=> {
+    console.log('connected')
+    app.listen(3000);
+}).catch(err => console.log(err));
+
+app.use(express.urlencoded({ extended: true}));
 
 app.set('view engine', 'ejs');
 
@@ -24,17 +34,30 @@ app.get('/contact',(req,res)=>{
     res.render('contact');
 });
 app.get('/lorum',(req,res)=>{
-    const names = [
-        { name: 'Aurel', tel: "0123456789" },
-        { name: 'Mam', tel: "0987654321" }
-    ]
+    // const names = [
+    //     { name: 'Aurel', tel: "0123456789" },
+    //     { name: 'Mam', tel: "0987654321" }
+    // ]
     console.log("jusqu'ici tout va bien...");
-    res.render('blabla', { names });
+    //res.render('add-contact', { names });
+    res.render('add-contact');
 });
-app.get('/kakolina',(req,res)=>{
-    console.log("jusqu'ici tout va bien...");
-    res.render('test1');
+
+app.get('/get-contacts',(req,res)=>{
+    Contact.find().then(result=>{
+        res.render('test1',{contacts:result});      //contacts is the name of our database
+    }).catch(err=> console.log(err))
 });
+
+app.post('/contact', (req,res)=>{
+    console.log(req.body);
+    const contact = Contact(req.body);
+    contact.save().then(()=>{
+        res.redirect('get-contacts')
+    }).catch(err=>console.log(err))
+});
+
+
 
 //function use without argument seems to be like 'if no path specified or no existed'
 //you also cant put it before the get func call, the order here is important (try it if you dont believe me)
@@ -45,4 +68,3 @@ app.use((req,res)=>{
 
 app.use('/public',express.static(path.join(__dirname,'/public')));
 
-app.listen(3000);
