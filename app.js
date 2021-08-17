@@ -29,9 +29,9 @@ app.get('/',(req,res)=>{
 });
 
 //the argument req is needed even if we don't use it
-app.get('/contact',(req,res)=>{
+app.get('/contactus',(req,res)=>{
     console.log("jusqu'ici tout va bien...");
-    res.render('contact');
+    res.render('contactus');
 });
 app.get('/lorum',(req,res)=>{
     // const names = [
