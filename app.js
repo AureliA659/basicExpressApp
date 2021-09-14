@@ -1,13 +1,14 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const port = process.env.PORT || 3000;
 const mongodb = 'mongodb+srv://<username>:<password>@cluster0.5zl9v.mongodb.net/<database-name>?retryWrites=true&w=majority';    //connect your app to your mongoDB
 const mongoose = require('mongoose');
 const Contact = require('./models/contact.js');
 
 mongoose.connect(mongodb,{ useNewUrlParser: true, useUnifiedTopology: true}).then(()=> {
     console.log('connected')
-    app.listen(3000);
+    app.listen(port);
 }).catch(err => console.log(err));
 
 app.use(express.urlencoded({ extended: true}));
