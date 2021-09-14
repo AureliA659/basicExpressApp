@@ -34,12 +34,7 @@ app.get('/contactus',(req,res)=>{
     res.render('contactus');
 });
 app.get('/lorum',(req,res)=>{
-    // const names = [
-    //     { name: 'Aurel', tel: "0123456789" },
-    //     { name: 'Mam', tel: "0987654321" }
-    // ]
     console.log("jusqu'ici tout va bien...");
-    //res.render('add-contact', { names });
     res.render('add-contact');
 });
 
